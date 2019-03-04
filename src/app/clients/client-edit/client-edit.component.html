@@ -1,0 +1,36 @@
+<div class="row" style="margin-top:60px;">
+  <div class="col-xs-12 col-lg-6 col-md-6">
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+             <input
+              type="text"
+              id="idClient"
+              formControlName="idClient"
+              class="form-control" style="display:none"/>
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                formControlName="fullName"
+                class="form-control"/>
+
+              <label for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="form-control"/>
+
+              <label for="cellphone">Cellphone</label>
+              <input
+                type="text"
+                id="cellphone"
+                formControlName="cellphone"
+                class="form-control"/>
+          <button
+            type="submit"
+            class="btn btn-success" >Save</button>
+          </div>
+    </form>
+  </div>
+</div>
