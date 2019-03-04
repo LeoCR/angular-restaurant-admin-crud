@@ -1,5 +1,5 @@
 import { ClientEditComponent } from './clients/client-edit/client-edit.component';
-import { ClientListComponent } from './clients/client-list/client-list.component';
+import { ClientsComponent } from './clients/clients.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
@@ -10,9 +10,8 @@ const appRoutes: Routes = [
   },
   {
     path:'clients',
-    component:ClientListComponent,
+    component:ClientsComponent,
     children:[
-
       {
         path: 'new/:newClientId',
         component: ClientEditComponent
