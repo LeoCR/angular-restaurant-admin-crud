@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientsComponent } from './clients/clients.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { ClientsComponent } from './clients/clients.component';
     ClientsComponent
   ],
   imports: [
+    NgbModule,
     HttpModule,
     BrowserModule,
     AppRoutingModule,

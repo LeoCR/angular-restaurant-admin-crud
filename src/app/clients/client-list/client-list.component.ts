@@ -1,6 +1,5 @@
 import { ClientService } from '../client.service';
-import { Component, OnInit, ViewEncapsulation ,Input} from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { EventEmitter, Output,Component, OnInit, ViewEncapsulation ,Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from '../client.model';
 import { Observable } from 'rxjs/Observable';
@@ -15,11 +14,15 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ClientListComponent   implements OnInit {
   @Input() clients:Observable<Client[]>;
+  @Output() clientDelete = new EventEmitter();
 //https://dzone.com/articles/understanding-output-and-eventemitter-in-angular
 //https://codecraft.tv/courses/angular/http/http-with-observables/
 //https://blog.florimondmanca.com/consuming-apis-in-angular-the-model-adapter-pattern
-//https://blog.fullstacktraining.com/display-real-time-data-in-angular/  
+//https://blog.fullstacktraining.com/display-real-time-data-in-angular/
   constructor(private clientService:ClientService,private router:Router){
+  }
+  clientDeleted(idClient:number){
+    this.clientDelete.emit(idClient);
   }
   ngOnInit() {
     this.onGetClients();

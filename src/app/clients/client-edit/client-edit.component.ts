@@ -1,7 +1,7 @@
 import { Client } from './../client.model';
 import { ClientService } from './../client.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, Validators ,FormBuilder} from '@angular/forms';
 
 @Component({
@@ -22,7 +22,7 @@ export class ClientEditComponent implements OnInit {
   };
   constructor(private route: ActivatedRoute,
     private clientService: ClientService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,private router:Router) {
 
     }
 
@@ -61,7 +61,7 @@ export class ClientEditComponent implements OnInit {
     }
     console.log(this.clientForm.value);
     setTimeout(() => {
-      location.replace("http://localhost:4243/clients")
+      this.router.navigate(['/clients/']);
     }, 2200);
 
   }

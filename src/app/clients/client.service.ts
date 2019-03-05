@@ -16,8 +16,11 @@ export class ClientService{
     countClients(){
       return this.httpClient.get('http://localhost:49652/api/count/clients');
     }
-     getClientByFind(idClient:number){
+    getClientByFind(idClient:number){
       return this.httpClient.get<Client>('http://localhost:49652/api/client/show/'+idClient);
+    }
+    deleteClientById(idClient:number){
+      return this.httpClient.delete('http://localhost:49652/api/client/delete/'+idClient);
     }
     createClient(Client: any) {
       return this.httpClient.post('http://localhost:49652/api/client/add/', Client).subscribe(
