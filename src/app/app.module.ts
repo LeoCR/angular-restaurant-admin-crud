@@ -14,6 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientsComponent } from './clients/clients.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
+import { IngredientEditComponent } from './ingredients/ingredient-edit/ingredient-edit.component';
+import { IngredientService } from './ingredients/ingredient.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ClientListComponent,
     ClientEditComponent,
     DropdownDirective,
-    ClientsComponent
+    ClientsComponent,
+    IngredientsComponent,
+    IngredientListComponent,
+    IngredientEditComponent
   ],
   imports: [
     NgbModule,
@@ -36,7 +43,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   exports:[
     DropdownDirective
   ],
-  providers: [ClientService],
+  providers: [ClientService,IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

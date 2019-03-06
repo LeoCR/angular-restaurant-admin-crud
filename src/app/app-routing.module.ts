@@ -1,3 +1,5 @@
+import { IngredientEditComponent } from './ingredients/ingredient-edit/ingredient-edit.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
 import { ClientEditComponent } from './clients/client-edit/client-edit.component';
 import { ClientsComponent } from './clients/clients.component';
 import { NgModule } from '@angular/core';
@@ -5,11 +7,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: HomeComponent
   },
+   {
+    path:'admin/ingredients',
+    component:IngredientsComponent,
+    children:[
+      {
+        path: 'new/:newIngredientId',
+        component: IngredientEditComponent
+      },
+      {
+        path: 'edit/:idIngredient',
+        component: IngredientEditComponent
+      }
+    ]
+  },
   {
-    path:'clients',
+    path:'admin/clients',
     component:ClientsComponent,
     children:[
       {

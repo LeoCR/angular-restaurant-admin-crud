@@ -1,15 +1,16 @@
-import { ClientService } from './client.service';
+import { IngredientService } from './ingredient.service';
 import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-clients',
-  templateUrl: './clients.component.html',
-  styleUrls: ['./clients.component.css']
+  selector: 'app-ingredients',
+  templateUrl: './ingredients.component.html',
+  styleUrls: ['./ingredients.component.css']
 })
-export class ClientsComponent implements OnInit {
+export class IngredientsComponent implements OnInit {
+
   closeResult: string;
-  constructor(private modalService: NgbModal,private clientService:ClientService) {}
+  constructor(private modalService: NgbModal,private ingredientService:IngredientService) {}
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -24,9 +25,9 @@ export class ClientsComponent implements OnInit {
   }
   ngOnInit() {
   }
-  deleteClient(idClient:number,content:any) {
+  deleteIngredient(idClient:number,content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.clientService.deleteClientById(idClient)
+      this.ingredientService.deleteIngredientById(idClient)
       .subscribe(
         res => {
           console.log(res);

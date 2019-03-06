@@ -1,3 +1,4 @@
+import { IngredientService } from './../../ingredients/ingredient.service';
 import { ClientService } from './../../clients/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,9 +10,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   nexIdClient:number;
-  constructor(private clientService:ClientService,private router:Router){
+  nexIdIngredient:number;
+  constructor(private clientService:ClientService,
+    private ingredientService:IngredientService,
+    private router:Router){
   }
   ngOnInit() {
+    this.ingredientService.countIngredients().subscribe(
+      res=>{
+        this.nexIdIngredient=res[0]['totalIngredients']+1;
+      }
+    )
     this.clientService.countClients().subscribe(
       res => {
         this.nexIdClient=res[0]['totalClients']+1;
@@ -19,6 +28,9 @@ export class HeaderComponent implements OnInit {
     )
   }
   goToNewClient(){
-    this.router.navigate(['/clients/new', this.nexIdClient]);
+    this.router.navigate(['/admin/clients/new', this.nexIdClient]);
+  }
+  goToNewIngredient(){
+    this.router.navigate(['/admin/ingredients/new', this.nexIdIngredient]);
   }
 }

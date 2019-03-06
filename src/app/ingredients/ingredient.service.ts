@@ -1,27 +1,27 @@
-import { Client } from './client.model';
 import {Injectable} from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Ingredient} from "./ingredient.model";
 @Injectable()
-export class ClientService{
+export class IngredientService{
     constructor(private httpClient:HttpClient){
     }
-    getClients(): Observable<Client[]>{
-        return this.httpClient.get<Client[]>('http://localhost:49452/api/client',{
+    getIngredients(): Observable<Ingredient[]>{
+        return this.httpClient.get<Ingredient[]>('http://localhost:49452/api/ingredients',{
           observe:'body',
           responseType:'json'});
     }
-    countClients(){
-      return this.httpClient.get('http://localhost:49452/api/count/clients');
+    countIngredients(){
+      return this.httpClient.get('http://localhost:49452/api/count/ingredients');
     }
-    getClientByFind(idClient:number){
-      return this.httpClient.get<Client>('http://localhost:49452/api/client/show/'+idClient);
+    getIngredientByFind(id:string){
+      return this.httpClient.get<Ingredient>('http://localhost:49452/api/ingredient/show/'+id);
     }
-    deleteClientById(idClient:number){
-      return this.httpClient.delete('http://localhost:49452/api/client/delete/'+idClient);
+    deleteIngredientById(id:number){
+      return this.httpClient.delete('http://localhost:49452/api/ingredient/delete/'+id);
     }
-    createClient(Client: any) {
-      return this.httpClient.post('http://localhost:49452/api/client/add/', Client).subscribe(
+    createIngredient(Ingredient: any) {
+      return this.httpClient.post('http://localhost:49452/api/ingredient/add/', Ingredient).subscribe(
           (val) => {
               console.log("POST call successful value returned in body", val);
           },
@@ -33,8 +33,8 @@ export class ClientService{
           }
       );
     }
-    updateClient(Client: any) {
-        return this.httpClient.put('http://localhost:49452/api/client/update/' + Client.idClient, Client).subscribe(
+    updateIngredient(Ingredient: any) {
+        return this.httpClient.put('http://localhost:49652/api/ingredient/update/' + Ingredient.id, Ingredient).subscribe(
           (val) => {
               console.log("PUT call successful value returned in body", val);
           },

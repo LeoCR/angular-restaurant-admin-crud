@@ -6,10 +6,16 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="nav navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"  routerLink="/" >Home </a>
+          <a class="nav-link"  routerLink="/admin" >Home </a>
         </li>
         <li class="nav-item dropdown" routerLinkActive="active" appDropdown>
-          <a class="nav-link dropdown-toggle" routerLink="/clients" >Clients</a>
+          <a class="nav-link dropdown-toggle" routerLink="/admin/ingredients" >Ingredients</a>
+          <ul class="dropdown-menu" >
+              <li><a (click)="goToNewIngredient()" style="cursor: pointer;">Add New</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active" appDropdown>
+          <a class="nav-link dropdown-toggle" routerLink="/admin/clients" >Clients</a>
           <ul class="dropdown-menu" >
               <li><a (click)="goToNewClient()" style="cursor: pointer;">Add New</a></li>
           </ul>
