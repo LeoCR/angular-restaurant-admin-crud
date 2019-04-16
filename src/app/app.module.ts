@@ -1,3 +1,4 @@
+import { IngredientFilterPipe } from './ingredients/ingredient-filter.pipe';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,7 +30,8 @@ import { IngredientService } from './ingredients/ingredient.service';
     ClientsComponent,
     IngredientsComponent,
     IngredientListComponent,
-    IngredientEditComponent
+    IngredientEditComponent,
+    IngredientFilterPipe
   ],
   imports: [
     NgbModule,

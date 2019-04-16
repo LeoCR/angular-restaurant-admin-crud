@@ -21,6 +21,10 @@ export class ClientListComponent   implements OnInit {
 //https://blog.fullstacktraining.com/display-real-time-data-in-angular/
   constructor(private clientService:ClientService,private router:Router){
   }
+  editClient(id:number){
+    var url="/admin/clients/edit/";
+    this.router.navigate(['edit']);
+  }
   clientDeleted(idClient:number){
     this.clientDelete.emit(idClient);
   }
@@ -30,6 +34,7 @@ export class ClientListComponent   implements OnInit {
   onGetClients(){
       this.clients = Observable
       .interval(1000)
+      //.interval(90000)
       .startWith(0).switchMap(() => this.clientService.getClients());
   }
   goToClientProfile(idClient:number){

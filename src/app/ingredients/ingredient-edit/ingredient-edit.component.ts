@@ -10,6 +10,7 @@ import { FormGroup, Validators ,FormBuilder} from '@angular/forms';
   encapsulation:ViewEncapsulation.None
 })
 export class IngredientEditComponent implements OnInit {
+  selectedFile:any='';
 
   editMode = false;
   ingredientForm: FormGroup;
@@ -20,10 +21,9 @@ export class IngredientEditComponent implements OnInit {
   };
   constructor(private route: ActivatedRoute,
     private ingredientService: IngredientService,
-    private formBuilder: FormBuilder,private router:Router) {
+    private formBuilder: FormBuilder,private router:Router ) {
 
     }
-
   ngOnInit() {
     this.initForm(this.ingredient);
     try {
@@ -50,6 +50,9 @@ export class IngredientEditComponent implements OnInit {
       console.log(error);
     }
   }
+  onFileChanged(event:any) {
+    this.selectedFile=event.target.files[0];
+  }
   onSubmit(){
     if (this.editMode) {
        this.ingredientService.updateIngredient(this.ingredientForm.value);
@@ -69,10 +72,10 @@ export class IngredientEditComponent implements OnInit {
         this.ingredientForm = this.formBuilder.group({
           id:[this.ingredient.id,Validators.required],
           name:[this.ingredient.name,Validators.required],
-          img:[this.ingredient.img,Validators.required]
+          img:[this.selectedFile,Validators.required]
         });
-
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error);
     }
   }

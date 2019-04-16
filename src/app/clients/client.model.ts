@@ -5,9 +5,9 @@ export class Client {
   public cellphone: string;
 
   constructor(idClient:number,fullName: string, email: string, cellphone: string) {
+    this.idClient=idClient;
     this.fullName = fullName;
     this.email = email;
-    this.cellphone = cellphone;
-    this.idClient=idClient;
+    this.cellphone=cellphone;
   }
 }

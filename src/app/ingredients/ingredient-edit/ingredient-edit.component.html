@@ -15,12 +15,11 @@
                 class="form-control"/>
 
               <label for="img">Image</label>
-              <input
-                type="text"
-                id="img"
+              <img [src]="ingredient.img" />
+              <input  type="file" (change)="onFileChanged($event)"
+                id="img" name="img"
                 formControlName="img"
-                class="form-control"/>
-
+                class="form-control" />
           <button
             type="submit"
             class="btn btn-success" >Save</button>

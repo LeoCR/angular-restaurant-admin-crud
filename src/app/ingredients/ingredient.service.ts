@@ -34,7 +34,7 @@ export class IngredientService{
       );
     }
     updateIngredient(Ingredient: any) {
-        return this.httpClient.put('http://localhost:49652/api/ingredient/update/' + Ingredient.id, Ingredient).subscribe(
+        return this.httpClient.put('http://localhost:49452/api/ingredient/update/' + Ingredient.id, Ingredient).subscribe(
           (val) => {
               console.log("PUT call successful value returned in body", val);
           },

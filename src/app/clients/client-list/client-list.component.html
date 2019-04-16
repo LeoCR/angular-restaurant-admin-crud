@@ -1,10 +1,11 @@
 <ul class="list-group" *ngFor="let client of clients | async">
-    <li class="list-group-item"><a
-      style="cursor: pointer;width: 330px;float: left;"
-      [routerLink]="['/clients/edit/', client.idClient ]"
+<li class="list-group-item">
+      <a
+      style="cursor: pointer;max-width:200px;float: left;"
+      [routerLink]="['/admin/clients/edit/', client.idClient ]"
       class="list-group-item clearfix">{{ client.fullName }}</a>
       <button class="btn btn-primary" style="float: right;" (click)="clientDeleted(client.idClient)">X</button>
-      <a class="btn btn-success mr-2" [routerLink]="['/clients/edit/', client.idClient ]" style="float: right;">
+      <a class="btn btn-success mr-2" [routerLink]="['/admin/clients/edit/', client.idClient ]" style="float: right;">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
